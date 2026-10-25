@@ -1,0 +1,4 @@
+
+Minha lista em React tem menos código porque o map cria os itens sem precisar montar cada elemento manualmente.
+Na versão em JavaScript puro, eu precisava criar os elementos e adicionar cada um à lista.
+Para mostrar dez tarefas, no React eu adicionaria mais objetos ao vetor; no JavaScript puro, também precisaria adicionar os dados e atualizar a lista na tela.

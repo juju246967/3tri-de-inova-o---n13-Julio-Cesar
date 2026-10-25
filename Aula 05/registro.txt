@@ -1,0 +1,3 @@
+Expressão produz um valor, como projeto ou t.feita ? "(feita)" : "(pendente)"; comando executa uma instrução, como if.
+Usei a expressão ternária para mostrar se cada tarefa está feita ou pendente.
+O erro mais difícil foi deixar dois elementos soltos no return, porque precisei envolvê-los em uma div ou Fragment.

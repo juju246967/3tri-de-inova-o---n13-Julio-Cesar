@@ -1,0 +1,74 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    <p id="contador"></p>
+    <p id="feitas"></p>
+    <p id="aviso"></p>
+
+    <ul id="lista"></ul>
+
+    <input id="novo" placeholder="Nova tarefa">
+    <button id="add">Adicionar</button>
+
+    <script>
+        let tarefas = [
+            { id: 1, texto: "Estudar React", feita: false },
+            { id: 2, texto: "Levar o cachorro", feita: true }
+        ];
+
+        function desenhar() {
+            const ul = document.getElementById("lista");
+            ul.innerHTML = "";
+
+            for (const t of tarefas) {
+                const li = document.createElement("li");
+
+                li.textContent = t.texto + (t.feita ? " (feita)" : "");
+
+                const input = document.createElement("input");
+                input.placeholder = "Escreva algo";
+                li.appendChild(input);
+
+                ul.appendChild(li);
+            }
+
+            document.getElementById("contador").textContent =
+                tarefas.length + " tarefas";
+
+            document.getElementById("feitas").textContent =
+                tarefas.filter(t => t.feita).length + " tarefas feitas";
+
+            document.getElementById("aviso").textContent =
+                tarefas.length === 0 ? "A lista está vazia" : "";
+        }
+
+        document.getElementById("add").addEventListener("click", () => {
+            const input = document.getElementById("novo");
+
+            if (input.value.trim() === "") {
+                return;
+            }
+
+            tarefas.push({
+                id: Date.now(),
+                texto: input.value,
+                feita: false
+            });
+
+            input.value = "";
+            desenhar();
+        });
+
+        desenhar();
+    </script>
+</body>
+</html>
+```

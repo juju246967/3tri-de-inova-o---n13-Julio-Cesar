@@ -1,0 +1,3 @@
+O experimento que mais me incomodou foi o segundo.
+O texto digitado desaparece quando adiciono uma nova tarefa.
+Isso acontece porque o JavaScript apaga e recria todos os elementos da lista.

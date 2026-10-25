@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxarifado Inteligente</title>
+    <style>
+        .destaque {
+            background-color: #eeeeee;
+            color: #8b0000;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const projeto = "Almoxarifado Inteligente";
+
+        function Cabecalho() {
+            return (
+                <header>
+                    <h1>{projeto}</h1>
+                    <p>Sistema digital para organizar e controlar o estoque.</p>
+                </header>
+            );
+        }
+
+        function Cartao() {
+            return (
+                <div className="destaque">
+                    <h3>Controle de estoque</h3>
+                    <p>Organização dos materiais do almoxarifado.</p>
+                </div>
+            );
+        }
+
+        function Lista() {
+            const tarefas = [
+                { id: 1, texto: "Estudar React", feita: false },
+                { id: 2, texto: "Levar o cachorro", feita: true }
+            ];
+
+            return (
+                <ul>
+                    {tarefas.map((t) => (
+                        <li key={t.id}>
+                            {t.texto} {t.feita ? "(feita)" : "(pendente)"}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Cabecalho />
+                    <Cartao />
+                    <Cartao />
+                    <Cartao />
+                    <h2>Lista de tarefas</h2>
+                    <Lista />
+                </div>
+            );
+        }
+
+        const raiz = ReactDOM.createRoot(document.getElementById("root"));
+        raiz.render(<App />);
+    </script>
+</body>
+</html>

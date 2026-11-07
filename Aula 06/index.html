@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxarifado Inteligente</title>
+
+    <style>
+        .destaque {
+            background-color: #eeeeee;
+            color: #8b0000;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const projeto = "Almoxarifado Inteligente";
+
+        const materiais = [
+            { id: 1, nome: "Correia B70", quantidade: 53 },
+            { id: 2, nome: "Correia C72", quantidade: 23 },
+            { id: 3, nome: "Correia C77", quantidade: 29 }
+        ];
+
+        function Cabecalho() {
+            return (
+                <header>
+                    <h1>{projeto}</h1>
+                    <p>Sistema digital para organizar e controlar o estoque.</p>
+                </header>
+            );
+        }
+
+        function Cartao({ nome, quantidade }) {
+            return (
+                <div className="destaque">
+                    <h3>{nome}</h3>
+                    <p>Quantidade em estoque: {quantidade} unidades</p>
+                </div>
+            );
+        }
+
+        function ListaMateriais({ materiais }) {
+            return (
+                <section>
+                    <h2>Controle de materiais</h2>
+
+                    {materiais.map((material) => (
+                        <Cartao
+                            key={material.id}
+                            nome={material.nome}
+                            quantidade={material.quantidade}
+                        />
+                    ))}
+                </section>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Cabecalho />
+                    <ListaMateriais materiais={materiais} />
+                </div>
+            );
+        }
+
+        const raiz = ReactDOM.createRoot(document.getElementById("root"));
+        raiz.render(<App />);
+
+    </script>
+
+</body>
+</html>
